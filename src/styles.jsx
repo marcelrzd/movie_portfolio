@@ -11,6 +11,7 @@ export const About = styled.div`
 `;
 
 export const Description = styled.div`
+  z-index: 2;
   flex: 1;
   padding-right: 5rem;
   h2 {
