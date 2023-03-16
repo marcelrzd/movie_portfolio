@@ -11,20 +11,25 @@ import Nav from "./components/Nav";
 import GlobalStyle from "./components/GlobalStyle";
 
 // Router
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+// Animation
+import { AnimatePresence } from "framer-motion";
 
 function App() {
+  const location = useLocation();
   return (
     <div className="App">
       <GlobalStyle />
       <Nav />
-      <Routes>
-        <Route path="/" exact element={<About />} />
-        <Route path="/about" exact element={<About />} />
-        <Route path="/work" exact element={<OurWork />} />
-        <Route path="/work/:id" exact element={<MovieDetail />} />
-        <Route path="/contact" exact element={<Contact />} />
-      </Routes>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" exact element={<About />} />
+          <Route path="/about" exact element={<About />} />
+          <Route path="/work" exact element={<OurWork />} />
+          <Route path="/work/:id" exact element={<MovieDetail />} />
+          <Route path="/contact" exact element={<Contact />} />
+        </Routes>
+      </AnimatePresence>
     </div>
   );
 }
