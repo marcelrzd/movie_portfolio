@@ -4,10 +4,11 @@ import React from "react";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import OurWork from "./pages/OurWork";
+import MovieDetail from "./pages/MovieDetail";
+import Nav from "./components/Nav";
 
 // Global Style
 import GlobalStyle from "./components/GlobalStyle";
-import Nav from "./components/Nav";
 
 // Router
 import { Routes, Route } from "react-router-dom";
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" exact element={<About />} />
         <Route path="/about" exact element={<About />} />
         <Route path="/work" exact element={<OurWork />} />
+        <Route path="/work/:id" exact element={<MovieDetail />} />
         <Route path="/contact" exact element={<Contact />} />
       </Routes>
     </div>
