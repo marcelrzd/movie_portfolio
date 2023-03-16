@@ -37,6 +37,17 @@ export const fade = {
   },
 };
 
+export const fadeAnswer = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      ease: "easeOut",
+      duration: 1.5,
+    },
+  },
+};
+
 export const photoAnim = {
   hidden: { scale: 1.5, opacity: 0 },
   show: {
