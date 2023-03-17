@@ -7,19 +7,23 @@ import { pageAnimation } from "../animation";
 import AboutSection from "../components/AboutSection";
 import FaqSection from "../components/FaqSection";
 import ServicesSection from "../components/ServicesSection";
+import ScrollTop from "../components/ScrollTop";
 
 const About = () => {
   return (
-    <motion.div
-      variants={pageAnimation}
-      initial="hidden"
-      animate="show"
-      exit="exit"
-    >
-      <AboutSection />
-      <ServicesSection />
-      <FaqSection />
-    </motion.div>
+    <>
+      <ScrollTop />
+      <motion.div
+        variants={pageAnimation}
+        initial="hidden"
+        animate="show"
+        exit="exit"
+      >
+        <AboutSection />
+        <ServicesSection />
+        <FaqSection />
+      </motion.div>
+    </>
   );
 };
 

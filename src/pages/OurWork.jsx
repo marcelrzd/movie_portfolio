@@ -14,52 +14,70 @@ import { fade, photoAnim, pageAnimation, lineAnim, slider } from "../animation";
 
 //  hooks
 import { useScroll } from "../components/UseScroll";
+import ScrollTop from "../components/ScrollTop";
 
 const OurWork = () => {
   const [element, controls] = useScroll();
   const [element2, controls2] = useScroll();
   return (
-    <Work variants={pageAnimation} initial="hidden" animate="show" exit="exit">
-      <motion.div>
-        <Frame1 variants={slider}></Frame1>
-        <Frame2 variants={slider}></Frame2>
-        <Frame3 variants={slider}></Frame3>
-        <Frame4 variants={slider}></Frame4>
-      </motion.div>
-
-      <Movie>
-        <motion.h2 variants={fade}>The Athlete</motion.h2>
-        <motion.div variants={lineAnim} className="line"></motion.div>
-        <Link to="/work/the-athlete">
-          <Hide>
-            <motion.img variants={photoAnim} src={athlete} alt="athlete" />
-          </Hide>
-        </Link>
-      </Movie>
-      <Movie ref={element} variants={fade} animate={controls} initial="hidden">
-        <motion.h2 variants={fade}>The Racer</motion.h2>
-        <motion.div variants={lineAnim} className="line"></motion.div>
-        <Link to="/work/the-racer">
-          <Hide>
-            <motion.img variants={photoAnim} src={theracer} alt="theracer" />
-          </Hide>
-        </Link>
-      </Movie>
-      <Movie
-        ref={element2}
-        variants={fade}
-        animate={controls2}
+    <>
+      <ScrollTop />
+      <Work
+        variants={pageAnimation}
         initial="hidden"
+        animate="show"
+        exit="exit"
       >
-        <motion.h2 variants={fade}>Good Times</motion.h2>
-        <motion.div variants={lineAnim} className="line"></motion.div>
-        <Link to="/work/good-times">
-          <Hide>
-            <motion.img variants={photoAnim} src={goodtimes} alt="goodtimes" />
-          </Hide>
-        </Link>
-      </Movie>
-    </Work>
+        <motion.div>
+          <Frame1 variants={slider}></Frame1>
+          <Frame2 variants={slider}></Frame2>
+          <Frame3 variants={slider}></Frame3>
+          <Frame4 variants={slider}></Frame4>
+        </motion.div>
+
+        <Movie>
+          <motion.h2 variants={fade}>The Athlete</motion.h2>
+          <motion.div variants={lineAnim} className="line"></motion.div>
+          <Link to="/work/the-athlete">
+            <Hide>
+              <motion.img variants={photoAnim} src={athlete} alt="athlete" />
+            </Hide>
+          </Link>
+        </Movie>
+        <Movie
+          ref={element}
+          variants={fade}
+          animate={controls}
+          initial="hidden"
+        >
+          <motion.h2 variants={fade}>The Racer</motion.h2>
+          <motion.div variants={lineAnim} className="line"></motion.div>
+          <Link to="/work/the-racer">
+            <Hide>
+              <motion.img variants={photoAnim} src={theracer} alt="theracer" />
+            </Hide>
+          </Link>
+        </Movie>
+        <Movie
+          ref={element2}
+          variants={fade}
+          animate={controls2}
+          initial="hidden"
+        >
+          <motion.h2 variants={fade}>Good Times</motion.h2>
+          <motion.div variants={lineAnim} className="line"></motion.div>
+          <Link to="/work/good-times">
+            <Hide>
+              <motion.img
+                variants={photoAnim}
+                src={goodtimes}
+                alt="goodtimes"
+              />
+            </Hide>
+          </Link>
+        </Movie>
+      </Work>
+    </>
   );
 };
 
