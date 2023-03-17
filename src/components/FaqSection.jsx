@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 // Styled
 import styled from "styled-components";
@@ -6,19 +6,26 @@ import { About } from "../styles";
 import Toggle from "./Toggle";
 
 // animation
-import { fadeAnswer } from "../animation";
-import { LayoutGroup, AnimatePresence, motion } from "framer-motion";
+import { fadeAnswer, scrollReveal } from "../animation";
+import { LayoutGroup, motion } from "framer-motion";
+
+// hooks
+import { useScroll } from "./UseScroll";
 
 const FaqSection = () => {
-  // state
-  const [faqToggle, setFaqToggle] = useState(false);
+  const [element, controls] = useScroll();
 
   return (
-    <Faq>
+    <Faq
+      variants={scrollReveal}
+      animate={controls}
+      initial="hidden"
+      ref={element}
+    >
       <h2>
         Any Questions <span>FAQ</span>
       </h2>
-      <LayoutGroup type="crossfade">
+      <LayoutGroup>
         <Toggle title="How Do I Start?">
           <motion.div variants={fadeAnswer} className="answer">
             <p>Lorem ipsum dolor sit amet.</p>
